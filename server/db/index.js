@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 let MONGO_URL;
-const MONGO_LOCAL_URL = 'mongodb://admin:passw0rd@ds163757.mlab.com:63757/heroku_n00xmwvp';
+const MONGO_LOCAL_URL = 'mongodb://localhost/healthcareProdb';
 
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI, { 
