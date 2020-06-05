@@ -247,17 +247,26 @@ class ProfileActions extends React.Component {
 					}}
 					message={<span id="message-id">Copied!</span>}
 				/>
-				<AppBar  position="static">
-						<Toolbar>
-							{this.props.back ? (
-							<a href={this.props.toLocation}>
-								<IconButton>
-								<ArrowBack />
-								</IconButton>
-							</a>
-							) : (
-							""
-							)}
+						<AppBar  position="static">
+          <Toolbar>
+          {this.props.userRole === "Doctor" ? (
+            <Link to="/doctor/home">
+                <IconButton>
+                <ArrowBack />
+                </IconButton>
+              </Link>
+            ) : (
+              ""
+            )}
+             {this.props.userRole === "Patient" ? (
+            <Link to="/patient/home">
+                <IconButton>
+                <ArrowBack />
+                </IconButton>
+              </Link>
+            ) : (
+              ""
+            )}
 						<Typography
 							className={classes.title}
 							variant="h6"
