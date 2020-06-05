@@ -104,7 +104,6 @@ class ProfileActions extends React.Component {
 		this.dialogClose = this.dialogClose.bind(this);
 		this.copyAndSubmit = this.copyAndSubmit.bind(this);
 		this.snackClose = this.snackClose.bind(this);
-		this.goBack = this.goBack.bind(this);
 		this.closeProfile = this.closeProfile.bind(this);
 		this.Transition = this.Transition.bind(this);
 	}
@@ -154,10 +153,6 @@ class ProfileActions extends React.Component {
 
 	snackClose = () => {
 		this.setState({ snackOpen: false });
-	};
-
-	goBack = () => {
-		this.setState({ open: false });
 	};
 
 	render() {
@@ -229,15 +224,12 @@ class ProfileActions extends React.Component {
 						/>
 					</DialogContent>
 					<DialogActions>
-						<Button onClick={this.dialogClose} color="primary">
-							Cancel
-						</Button>
 						<CopyToClipboard text={token}>
 							<Button onClick={this.copyAndSubmit} color="primary">
 								Copy and Submit
 							</Button>
 						</CopyToClipboard>
-						<Button onClick={this.goBack} color="primary">
+            <Button onClick={this.dialogClose} color="primary">
 							Exit
 						</Button>
 					</DialogActions>
@@ -256,14 +248,16 @@ class ProfileActions extends React.Component {
 					message={<span id="message-id">Copied!</span>}
 				/>
 				<AppBar  position="static">
-					<Toolbar>
-						{this.props.back ? (
-							<IconButton href={this.props.toLocation}>
+						<Toolbar>
+							{this.props.back ? (
+							<a href={this.props.toLocation}>
+								<IconButton>
 								<ArrowBack />
-							</IconButton>
-						) : (
+								</IconButton>
+							</a>
+							) : (
 							""
-						)}
+							)}
 						<Typography
 							className={classes.title}
 							variant="h6"
