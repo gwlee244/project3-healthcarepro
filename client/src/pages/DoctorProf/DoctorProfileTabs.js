@@ -38,7 +38,6 @@ function TabContainer(props) {
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
   },
   infoItems: {
     marginLeft: ".5em",
@@ -133,7 +132,7 @@ class DoctorProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {settings.address
+              {settings.address.street
                 ? `Address: ${settings.address.city} ${
                 settings.address.street
                 } ${settings.address.number}`
