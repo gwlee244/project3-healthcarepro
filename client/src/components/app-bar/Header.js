@@ -20,18 +20,21 @@ const styles = {
 	},
 	end: {
 		justifyContent: "flex-end"
-	}
+  },
+  arrow: {
+    color: "white"
+  }
 };
 
 function Header(props) {
 	const { classes } = props;
 	return (
 		<div className={classes.root}>
-			<AppBar position="static">
+			<AppBar className="bar" position="static">
 				<ToolBar>
 					{props.back ? (
 						<IconButton href={props.toLocation}>
-							<ArrowBack />
+							<ArrowBack className={classes.arrow} />
 						</IconButton>
 					) : (
 						""

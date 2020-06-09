@@ -81,9 +81,9 @@ const styles = theme => ({
 			display: "flex"
 		}
 	},
-	appBar: {
-		position: "relative"
-	}
+  arrow: {
+    color: "white"
+  }
 });
 
 class ProfileActions extends React.Component {
@@ -109,8 +109,8 @@ class ProfileActions extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getUserData(this.props.auth.user.id);
-	}
+    this.props.getUserData(this.props.auth.user.id);
+  }
 
 	Transition(props) {
 		return <Slide direction="up" {...props} />;
@@ -152,10 +152,13 @@ class ProfileActions extends React.Component {
 	};
 
 	snackClose = () => {
+    console.log("snack closed");
 		this.setState({ snackOpen: false });
 	};
 
 	render() {
+  
+    console.log(this.props.userRole);
 		const { anchorEl } = this.state;
 		const { classes } = this.props;
 		const isMenuOpen = Boolean(anchorEl);
@@ -172,7 +175,6 @@ class ProfileActions extends React.Component {
 				onClose={this.handleMenuClose}>
 				<MenuItem
 					onClick={() => {
-
 						this.setState({ openProfile: true });
 					}}>
 					My Profile
@@ -247,26 +249,26 @@ class ProfileActions extends React.Component {
 					}}
 					message={<span id="message-id">Copied!</span>}
 				/>
-					<AppBar  position="static">
-						<Toolbar>
-						{this.props.userRole === "Doctor" ? (
-							<Link to="/doctor/home">
-								<IconButton>
-								<ArrowBack />
-								</IconButton>
+				<AppBar className="bar" position="static">
+					<Toolbar>
+          {this.props.userRole === "Doctor" && this.props.back ? (
+						<Link to="/doctor/home">
+                <IconButton>
+								<ArrowBack className={classes.arrow} />
+                </IconButton>
 							</Link>
-							) : (
+						) : (
 							""
-							)}
-							{this.props.userRole === "Patient" ? (
-							<Link to="/patient/home">
-								<IconButton>
-								<ArrowBack />
-								</IconButton>
+						)}
+             {this.props.userRole === "Patient" && this.props.back ? (
+						<Link to="/patient/home">
+                <IconButton>
+								<ArrowBack className={classes.arrow} />
+                </IconButton>
 							</Link>
-							) : (
+						) : (
 							""
-							)}
+						)}
 						<Typography
 							className={classes.title}
 							variant="h6"
@@ -296,7 +298,7 @@ class ProfileActions extends React.Component {
 					open={this.state.openProfile}
 					onClose={this.closeProfile}
 					TransitionComponent={this.Transition}>
-					<AppBar className={classes.appBar}>
+					<AppBar className= "profile-bar">
 						<Toolbar>
 							<IconButton
 								color="inherit"

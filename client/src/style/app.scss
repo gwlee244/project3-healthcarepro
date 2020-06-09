@@ -19,6 +19,33 @@
     padding: 2em;
 }
 
+.bar {
+    background-color:#2F403E !important;
+    // background-color:rgb(55,111,119) !important;
+    color: white;
+}
+.profile-bar, .doctor-bar, .patient-bar {
+  background-color:#2F403E !important;
+  // background-color:rgb(55,111,119) !important;
+  position: relative !important;
+  margin-bottom: 100px;
+}
+
+.employee-find {
+  padding:20px !important;
+}
+.employee-table {
+  padding-left:50px !important;
+}
+
+.patient-table-row {
+padding-left: 30px !important;
+}
+
+th, td {
+  padding-left: 30px !important;
+}
+
 .searchCard {
     justify-content: space-between;
     align-items: baseline;
@@ -127,3 +154,13 @@ a {
 }
 
 @import "scheduler";
+
+
+@media only screen and (max-width: 1000px) {
+    .localProfileGrid, .profileGrid {
+        display: flex;
+        flex-direction:column;
+        padding: 2em;
+        font-size:11px;
+    }
+  }
