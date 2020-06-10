@@ -61,7 +61,7 @@ export class Stats extends Component {
               Ages
         </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="bar"
               options={sexesBar.options}
