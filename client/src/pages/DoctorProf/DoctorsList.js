@@ -15,7 +15,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import IconButton from "@material-ui/core/IconButton";
 import { getDoctorsList, clearFinded, findToken } from "../../actions/utilsAction";
-import CardProfile from "./CardProfile";
+import CardProfile from "./cardProfile";
 import Loader from "../../utils/Loader";
 import SearchTokenDialog from "./SearchTokenDialog";
 import noDoctor from "../../img/noPatient.jpg";
@@ -87,7 +87,6 @@ class DoctorsList extends Component {
   }
   render() {
     let content = null;
-    console.log(this.props.general);
     let { doctorData, findedDoctor } = this.props.general;
     const { classes } = this.props;
     if (doctorData == null) {
